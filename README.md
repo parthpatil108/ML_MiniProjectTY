@@ -1,4 +1,4 @@
-# Device & Social Media Addiction Prediction (College ML Mini-Project)
+# A Full-Stack Personal Productivity and Habit Tracking System (TYBtech ML Mini-Project)
 
 A simple, readable, and end-to-end Machine Learning project designed for second-year B.Tech students. This project predicts whether an individual is at risk of device/social media addiction based on daily lifestyle and digital usage habits.
 
@@ -124,22 +124,3 @@ python -m PyInstaller --noconfirm --onefile --windowed --add-data "model.joblib;
 - `--add-data "model_metadata.json;."`: Packages feature names and dropdown options inside the bundle root directory.
 - `--collect-submodules sklearn`: Ensures dynamically imported scikit-learn modules are included.
 - `sys._MEIPASS`: In `app.py`, the `get_resource_path()` function checks `sys._MEIPASS` when running inside the PyInstaller temporary extraction folder and falls back to the current directory when running as standard Python code.
-
----
-
-## 6. Viva Preparation / Key Questions & Answers
-
-1. **Why did you use median imputation instead of mean or dropping rows?**
-   - *Answer*: Dropping rows would discard valuable training data. Median imputation is preferred over mean because digital usage features (like daily screen time or notifications) can contain skewed distributions and outliers that distort the mean.
-
-2. **Why is ROC AUC the primary metric instead of raw accuracy?**
-   - *Answer*: In `train.csv`, approximately 70.9% of samples are labeled as addicted. Accuracy can be misleading on imbalanced datasets because a trivial model guessing "addicted" all the time would still get ~71% accuracy. ROC AUC measures the true discriminatory capability of the model across all probability thresholds independent of class balance.
-
-3. **Why did you train `compare_models.py` on a 50,000 sample instead of all 691,369 rows?**
-   - *Answer*: Algorithms like Support Vector Classifiers ($O(n^2)$ to $O(n^3)$ time complexity) and K-Nearest Neighbors ($O(n \cdot d)$ per query) scale poorly to hundreds of thousands of samples. A stratified random sample of 50,000 samples preserves class proportions and offers an accurate comparison in a reasonable execution time.
-
-4. **Why did you limit the Random Forest depth (`max_depth=15, min_samples_leaf=5`)?**
-   - *Answer*: An unconstrained Random Forest trained on 550,000+ samples creates deep, complex decision trees that can exceed 500 MB in file size and risk overfitting. Setting depth and leaf constraints kept the file size small (26.7 MB), prevented overfitting, and maintained a high validation ROC AUC of 0.9386.
-
-5. **How does the app handle empty numeric fields?**
-   - *Answer*: Any empty field is passed as `np.nan`. Because our scikit-learn pipeline includes `SimpleImputer(strategy='median')`, the pipeline automatically fills empty entries with the median value learned during training without crashing.
