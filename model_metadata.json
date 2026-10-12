@@ -1,0 +1,42 @@
+{
+    "model_name": "Random Forest",
+    "val_roc_auc": 0.9386,
+    "val_accuracy": 0.8655,
+    "numeric_features": [
+        "age",
+        "daily_screen_time_hours",
+        "social_media_hours",
+        "gaming_hours",
+        "work_study_hours",
+        "sleep_hours",
+        "notifications_per_day",
+        "app_opens_per_day",
+        "weekend_screen_time"
+    ],
+    "categorical_features": [
+        "gender",
+        "stress_level",
+        "academic_work_impact"
+    ],
+    "categorical_options": {
+        "gender": [
+            "Female",
+            "Male",
+            "Other"
+        ],
+        "stress_level": [
+            "Low",
+            "Medium",
+            "High"
+        ],
+        "academic_work_impact": [
+            "No",
+            "Yes"
+        ]
+    },
+    "target": "addicted_label",
+    "classes": [
+        "Not Addicted",
+        "Addicted"
+    ]
+}

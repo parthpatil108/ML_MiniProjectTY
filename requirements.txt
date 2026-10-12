@@ -1,0 +1,7 @@
+# Pinned requirements for Addiction Predictor Mini-Project
+# Python 3.14 on Windows
+numpy==2.3.4
+pandas==2.3.3
+scikit-learn==1.9.1
+joblib==1.6.0
+pyinstaller==6.22.3
