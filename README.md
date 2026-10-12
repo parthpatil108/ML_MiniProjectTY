@@ -1,4 +1,4 @@
-# A Full-Stack Personal Productivity and Habit Tracking System (TYBtech ML Mini-Project)
+# Smartphone & Social Media Addiction Prediction (TYBtech ML Mini-Project)
 
 A simple, readable, and end-to-end Machine Learning project designed for second-year B.Tech students. This project predicts whether an individual is at risk of device/social media addiction based on daily lifestyle and digital usage habits.
 
